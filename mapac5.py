@@ -109,6 +109,26 @@ def proyectar_pensionados(pensionados_actuales, crecimiento_poblacional, inflaci
 # Título de la aplicación
 st.title("Simulación y Proyección de Pensionados en México: Un Enfoque Basado en Datos")
 
+
+# Añadir un botón para descargar el archivo PDF
+st.sidebar.title("Descargar PDF del Proyecto")
+
+# Ruta del archivo PDF
+pdf_file_path = "proyecto_simulados.pdf"
+
+# Botón de descarga
+if st.sidebar.button("Descargar PDF"):
+    with open(pdf_file_path, "rb") as file:
+        st.sidebar.download_button(
+            label="Descargar proyecto_simulados.pdf",
+            data=file,
+            file_name="proyecto_simulados.pdf",
+            mime="application/pdf"
+        )
+
+
+
+
 # Sección de Ayuda
 st.sidebar.title("Ayuda")
 st.sidebar.write("""
